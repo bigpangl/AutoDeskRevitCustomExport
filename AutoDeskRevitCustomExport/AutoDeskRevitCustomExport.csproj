@@ -32,7 +32,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
+    <OutputPath>C:\ProgramData\Autodesk\Revit\Addins\2019\AutodeskCustomExport\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
@@ -71,6 +71,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,7 +80,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Core\Cache\ICache.cs" />
     <Compile Include="Core\Cache\LocalFileCache.cs" />
     <Compile Include="Core\Cache\LocalFolderCache.cs" />
@@ -96,6 +96,8 @@
     <Compile Include="Data\CustomJson.cs" />
     <Compile Include="Data\CustomMaterial.cs" />
     <Compile Include="Data\CustomMesh.cs" />
+    <Compile Include="DemoExport.cs" />
+    <Compile Include="DemoLoad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
