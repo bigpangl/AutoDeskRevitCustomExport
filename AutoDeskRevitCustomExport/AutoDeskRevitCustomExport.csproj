@@ -102,6 +102,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Core\README.md" />
+    <None Include="Data\README.md" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

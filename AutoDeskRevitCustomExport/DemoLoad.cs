@@ -57,7 +57,7 @@ namespace AutoDeskRevitCustomExport
 
                 //IBaseCache baseCache = new LocalFolderCache(path); // 文件夹载入
                 CustomLoad baseLoad = new CustomLoad(baseCache, doc);
-                baseLoad.LoadModel(Transform.Identity); // 此处可以用于移动
+                baseLoad.LoadModel(Transform.Identity); // 此处可以用于传递初始的旋转平移变换
                 t.Commit();
             }
             return Result.Succeeded;

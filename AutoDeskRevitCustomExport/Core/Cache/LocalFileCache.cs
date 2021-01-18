@@ -67,26 +67,19 @@ namespace AutoDeskRevitCustomExport.Core.Cache
 
         }
 
-        public string GetData(int id)
+        public CustomMaterial GetMaterial(int id)
         {
+            this.materialCache.TryGetValue(id, out CustomMaterial material);
+            return material;
+        }
+
+        public CustomElement GetElement(int id)
+        {
+
             this.elementsCache.TryGetValue(id, out CustomElement ele);
 
-            if (ele != null)
-            {
-                return JsonConvert.SerializeObject(ele);
-            }
-            else
-            {
-                this.materialCache.TryGetValue(id, out CustomMaterial material);
-                if (material != null)
-                {
-                    return JsonConvert.SerializeObject(material);
-                }
-                else
-                {
-                    return null;
-                }
-            }
+            return ele;
         }
     }
+
 }

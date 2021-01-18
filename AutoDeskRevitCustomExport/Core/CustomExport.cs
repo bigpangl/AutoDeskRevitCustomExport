@@ -16,7 +16,7 @@ namespace AutoDeskRevitCustomExport.Core
         private readonly ISave saver = null;
         private readonly Document doc = null;
 
-        private readonly Stack<Transform> transformationStack = null;
+        private readonly Stack<Transform> transformationStack = null; // 旋转变换相关,以栈的形式存在以满足后续使用中的逻辑
         private readonly Stack<CustomElement> singleGeometry = null; // 导出的数据格式element
         private readonly IList<int> instanceIDs = null;
         private CustomMaterial material = null;

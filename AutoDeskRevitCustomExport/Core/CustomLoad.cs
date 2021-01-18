@@ -15,13 +15,11 @@ namespace AutoDeskRevitCustomExport.Core
     {
         private readonly ICache baseCache = null;
         private readonly Document doc;
-        private readonly Dictionary<int, IList<GeometryObject>> geometryCache;
 
         public CustomLoad(ICache baseCache, Document doc)
         {
             this.baseCache = baseCache;
             this.doc = doc;
-            this.geometryCache = new Dictionary<int, IList<GeometryObject>>();
         }
 
         /// <summary>
@@ -77,7 +75,6 @@ namespace AutoDeskRevitCustomExport.Core
             return builder;
         }
 
-
         /// <summary>
         /// 载入所有的mesh信息
         /// </summary>
@@ -98,7 +95,9 @@ namespace AutoDeskRevitCustomExport.Core
         public IList<GeometryObject> LoadSingleElement(int eleid, Transform transfrom)
         {
             IList<GeometryObject> dataBack = new List<GeometryObject>();
-            CustomElement ele = this.LoadElement(eleid);
+
+            CustomElement ele = this.baseCache.GetElement(eleid);
+
             if (ele != null)
             {
                 IList<TessellatedShapeBuilder> builders = LoadMesh(ele.meshs, transfrom);
@@ -144,25 +143,10 @@ namespace AutoDeskRevitCustomExport.Core
             return dataBack;
         }
 
-        /// <summary>
-        /// 通过cache 载入element 对象
-        /// </summary>
-        /// <param name="eleid"></param>
-        /// <returns></returns>
-        public CustomElement LoadElement(int eleid)
+        public List<DirectShape> LoadModel(Transform transfrom)
         {
-            // 递归载入几何体信息
-            CustomElement ele = null;
-            string data = this.baseCache.GetData(eleid);
-            if (data != null)
-            {
-                ele = JsonConvert.DeserializeObject<CustomElement>(data); // 这里是
-            }
-            return ele;
-        }
+            List<DirectShape> dataBack = new List<DirectShape>();
 
-        public void LoadModel(Transform transfrom)
-        {
             BIMTotal bimin = this.baseCache.GetTotal();
             Debug.Assert(bimin != null, "BIMIn 数据获取为空");
 
@@ -173,9 +157,10 @@ namespace AutoDeskRevitCustomExport.Core
 
             foreach (int eleid in bimin.eleids)
             {
-                CustomElement ele = LoadElement(eleid);
+                CustomElement ele = this.baseCache.GetElement(eleid);
 
                 IList<GeometryObject> datasUse = this.LoadSingleElement(eleid, transfrom);
+
                 if (datasUse.Count > 0)
                 {
                     DirectShape dsLifting = DirectShape.CreateElement(doc, new ElementId(BuiltInCategory.OST_GenericModel));
@@ -184,8 +169,11 @@ namespace AutoDeskRevitCustomExport.Core
                     {
                         dsLifting.SetName(ele.name);
                     }
+                    dataBack.Add(dsLifting);
                 }
             }
+
+            return dataBack;
         }
     }
 }
