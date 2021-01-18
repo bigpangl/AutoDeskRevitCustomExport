@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace AutoDeskRevitCustomExport.Core.Cache
 {
+    /// <summary>
+    /// 从文件夹中载入
+    /// </summary>
     public class LocalFolderCache : ICache
     {
         private readonly string modelPath = null;
@@ -34,6 +37,7 @@ namespace AutoDeskRevitCustomExport.Core.Cache
             }
             return data;
         }
+
         public BIMTotal GetTotal()
         {
             BIMTotal bims = null;

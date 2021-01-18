@@ -16,8 +16,14 @@ namespace AutoDeskRevitCustomExport.Data
         /// </summary>
         public string name;
 
+        /// <summary>
+        /// 多个mesh,此部分保留,用于在其他端构建数据
+        /// </summary>
         public List<CustomMesh> meshs;
 
+        /// <summary>
+        /// 几何体复用部分,给加载优化做数据准备
+        /// </summary>
         public List<CustomInstance> instances;
     }
 }

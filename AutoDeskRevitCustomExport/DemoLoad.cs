@@ -15,6 +15,9 @@ using Application = Autodesk.Revit.ApplicationServices.Application;
 
 namespace AutoDeskRevitCustomExport
 {
+    /// <summary>
+    /// 此处是一个示例,用于通过指定的源文件,导入几何模型
+    /// </summary>
     [Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
     public class DemoLoad : IExternalCommand
     {

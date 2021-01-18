@@ -16,6 +16,9 @@ using Application = Autodesk.Revit.ApplicationServices.Application;
 
 namespace AutoDeskRevitCustomExport
 {
+    /// <summary>
+    /// 此处是一个示例,用于在revit 插件中指向,然后导出数据到指定文件
+    /// </summary>
     [Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
     public class DemoExport : IExternalCommand
     {

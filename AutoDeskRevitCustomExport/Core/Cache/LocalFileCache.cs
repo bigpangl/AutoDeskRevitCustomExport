@@ -10,7 +10,10 @@ using System.Threading.Tasks;
 
 namespace AutoDeskRevitCustomExport.Core.Cache
 {
-    public class LocalFileCache:ICache
+    /// <summary>
+    /// 一个从单文件获取相关信息的封装
+    /// </summary>
+    public class LocalFileCache : ICache
     {
         private readonly string filePath = null;
         private readonly CustomJson jsonModel = null;

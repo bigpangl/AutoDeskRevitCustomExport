@@ -11,16 +11,24 @@ namespace AutoDeskRevitCustomExport.Data
     /// </summary>
     public class CustomMesh
     {
-        // 一个mesh 具有的材质特点
+        /// <summary>
+        /// 对应材质ID
+        /// </summary>
         public int material;
 
-        // 此mesh 具有的顶点信息
+        /// <summary>
+        /// 此mesh 具有的顶点信息
+        /// </summary>
         public List<double> vertices;
 
-        // 此mesh 具有的三角形片段,对应vertices 下标索引
+        /// <summary>
+        /// 此mesh 具有的三角形片段,对应vertices 下标索引
+        /// </summary>
         public List<int> angles;
 
-        // 对应每个三角形的法向量
+        /// <summary>
+        /// 对应每个三角形的法向量
+        /// </summary>
         public List<double> normals;
     }
 }

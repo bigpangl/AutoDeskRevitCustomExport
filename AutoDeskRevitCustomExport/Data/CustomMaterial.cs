@@ -13,11 +13,19 @@ namespace AutoDeskRevitCustomExport.Data
         /// 颜色,对应rgb值
         /// </summary>
         public List<int> color;
-
+        /// <summary>
+        /// 对应材质中的glossiness
+        /// </summary>
         public double glossiness;
 
+        /// <summary>
+        /// 对应材质中transparency
+        /// </summary>
         public double transparency;
 
+        /// <summary>
+        /// 对应材质中smoothness
+        /// </summary>
         public double smoothness;
     }
 }
