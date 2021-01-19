@@ -100,7 +100,9 @@
     <Compile Include="DemoLoad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Core\README.md" />
     <None Include="Data\README.md" />
